@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="edutech-kratonis.com" />
+  <setParameter name="EducationTechnologyEntities-Web.config Connection String" value="metadata=res://*/Models.EdutechUserModel.csdl|res://*/Models.EdutechUserModel.ssdl|res://*/Models.EdutechUserModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-DREAMCRA\SQLEXPRESS;initial catalog=EducationTechnology;user id=sa;password=Password95;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>

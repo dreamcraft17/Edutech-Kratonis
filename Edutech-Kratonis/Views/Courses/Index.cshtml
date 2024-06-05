@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Courses";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .search-container {
+            padding: 2em;
+            text-align: center;
+            background-color: white;
+            margin: 2em auto;
+            width: 100%;
+            height: 700px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .search-container h1 {
+                color: #5c2d58; 
+            }
+
+            .search-container input[type="text"] {
+                width: 50%;
+                padding: 0.5em;
+                margin: 1em 0;
+                border: 1px solid #e56d68;
+                border-radius: 5px;
+            }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+
+            .filters .filter-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filters label {
+                margin-bottom: 0.5em;
+                color: #5c2d58; /* Dark purple color */
+            }
+
+            .filters select, .filters button {
+                padding: 0.5em;
+                border: 1px solid #e56d68;
+                border-radius: 5px;
+                background-color: #f2a49f;
+                cursor: pointer;
+            }
+
+            .filters button {
+                background-color: #e56d68; /* Matching the reset filter button color */
+                color: white;
+                align-self: center;
+                margin-top: auto;
+            }
+
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3em;
+            justify-content: center;
+        }
+
+        .course-card {
+            background-color: white;
+            padding: 1em;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid #e56d68;
+        }
+
+            .course-card h3 {
+                margin: 0.5em 0;
+            }
+
+            .course-card p {
+                margin: 0.5em 0;
+                color: gray;
+            }
+
+            .course-card .type {
+                color: #e56d68;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search Course</h1>
+        <input id="search-input" type="text" placeholder="Search...">
+        <div class="filters" style="padding-top:40px;">
+            <div class="filter-group">
+                <label for="jenjang">Jenjang</label>
+                <select id="jenjang" style="width:160px;">
+                    <option value="" selected>---Silahkan Pilih ---</option>
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="SMK">SMK</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="tipe">Tipe</label>
+                <select id="tipe" style="width:160px;">
+                    <option value="" selected>---Silahkan Pilih ---</option>
+                    <option value="Video">Video</option>
+                    <option value="Audio">Audio</option>
+                </select>
+            </div>
+            <button id="reset-button">Reset Filter</button>
+        </div>
+        <div class="courses" style="padding-top:40px;">
+            <div class="course-card">
+                <h3>SD</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Video</div>
+            </div>
+            <div class="course-card">
+                <h3>SMP</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Audio</div>
+            </div>
+            <div class="course-card">
+                <h3>SMA</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Video</div>
+            </div>
+            <div class="course-card">
+                <h3>SMK</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Audio</div>
+            </div>
+            <div class="course-card">
+                <h3>SD</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Video</div>
+            </div>
+            <div class="course-card">
+                <h3>SMP</h3>
+                <p>Lorem ipsum dolor sit amet</p>
+                <div class="type">Audio</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reset-button').addEventListener('click', function() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('jenjang').selectedIndex = 0;
+            document.getElementById('tipe').selectedIndex = 0;
+        });
+    </script>
+</body>
+</html>

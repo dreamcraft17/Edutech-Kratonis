@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EduTech</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            left: 0;
+            top: 0;
+        }
+
+            .sidebar img {
+                height: 200px;
+                width: 200px;
+                margin: 20px 0;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .back-button {
+            background-color: #f1f1f1;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: left;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            margin: 10px 20px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            border-radius: 4px;
+            width: calc(100% - 40px);
+        }
+
+            .back-button:hover {
+                background-color: darkred;
+                color: white;
+            }
+
+            .back-button .arrow-icon {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+            .sidebar-nav li {
+                width: 100%;
+            }
+
+                .sidebar-nav li a {
+                    display: block;
+                    padding: 15px 20px;
+                    color: black;
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+                }
+
+                    .sidebar-nav li a:hover,
+                    .sidebar-nav li a:focus {
+                        background-color: #f1f1f1;
+                        border-left: 5px solid red;
+                    }
+
+            .sidebar-nav .active-link {
+                background-color: #f1f1f1;
+                border-left: 5px solid red;
+            }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+            .sidebar-footer a {
+                color: black;
+                text-decoration: none;
+            }
+
+            .sidebar-footer .oval-btn {
+                border-radius: 50px;
+                background-color: red;
+                color: white;
+                padding: 10px 20px;
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+                .sidebar-footer .oval-btn:hover {
+                    background-color: darkred;
+                    color: white;
+                }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+            flex-grow: 1;
+            margin-top: 70px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: calc(100% - 200px);
+            margin-left: 200px;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="@Url.Content("~/Assets/Profile/logo.png")" alt="Application name" />
+        <button class="back-button" onclick="history.back()">
+            <span class="arrow-icon">&#8592;</span> Back
+        </button>
+        <ul class="sidebar-nav">
+            <li>@Html.ActionLink("Favorite", "Profile", "Home")</li>
+            <li>@Html.ActionLink("Notification", "Notification", "Profile")</li>
+            <li>@Html.ActionLink("Message", "Profile", "Home")</li>
+            <li>@Html.ActionLink("Settings", "Profile", "Home")</li>
+        </ul>
+    </div>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - EduTech.Kratonis</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        function redirectToProfile() {
+            var username = document.getElementById("username").value;
+            window.location.href = '/home/profile?username=' + encodeURIComponent(username);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿@model Edutech_Kratonis.ViewModel.EducationTechUserViewModel
+@{
+    ViewBag.Title = "Login";
+}
+@{
+    Layout = null;
+}
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-page {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%;
+            max-height: 600px;
+            width: 900px;
+            overflow: hidden;
+        }
+
+        .login-image {
+            flex: 1;
+            background: url('~/Assets/Login/login1.png') center center/cover no-repeat;
+        }
+
+        .login-form {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .login-form h2 {
+                margin-bottom: 20px;
+                font-size: 28px;
+                color: #333;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .btn {
+            background-color: #f88379;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #e87063;
+            }
+
+        .form-group p {
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+            .form-group p a {
+                color: #f88379;
+                text-decoration: none;
+            }
+
+                .form-group p a:hover {
+                    text-decoration: underline;
+                }
+
+        .login-logo {
+            height: 70px;
+            width: 100px;
+        }
+    </style>
+    <title> EduTech - Login</title>
+</head>
+
+<div class="login-page">
+    <div class="login-container">
+        <div class="login-image">
+            @*<img src="~/Assets/Login/edutech.png" alt="halo" />*@
+            <img src="~/Assets/Logo/logo3.png" alt="cuaks" />
+        </div>
+        <div class="login-form">
+
+            <h2 class="text-center">Login</h2>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+
+                    @Html.TextBoxFor(m => m.username, new { @class = "form-control", @placeholder = "Username" })
+                    @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+                <div class="form-group">
+                    <p>@Html.ActionLink("Don't have an account?", "Register", "Home")</p>
+                    <p>@Html.ActionLink("Back", "Index", "Home")</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+@if (TempData["ErrorMessage"] != null)
+{
+<script type="text/javascript">
+        alert('@TempData["ErrorMessage"]');
+</script>}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

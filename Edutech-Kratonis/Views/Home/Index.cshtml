@@ -1,0 +1,336 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .jumbotron {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .full-width {
+        width: 100%;
+        margin-top: 20px;
+        max-width: 700px;
+    }
+
+    .jumbotron input[type="text"] {
+        max-width: 100%;
+    }
+
+    .home-page {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .home-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .home-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    .testi-form {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .testi-1 {
+        background-color: lightpink;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        height: 120px; /* Adjust the height */
+        width: auto; /* Set the width to auto to expand horizontally */
+        font-size: 0.9em;
+    }
+
+    .circle-image {
+        width: 50px; /* Reduce the size of the image */
+        height: 50px; /* Reduce the size of the image */
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .testi-1 div {
+        flex: 1;
+    }
+
+    .testi-1 h3 {
+        margin: 5px 0;
+        font-size: 1em;
+    }
+
+    .testi-1 p {
+        margin: 2px 0;
+    }
+
+    /* New styles for dashboard */
+    .dashboard-container {
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .sidebar {
+        flex: 1;
+        background-color: #f8f8f8;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .sidebar ul li {
+                margin-bottom: 10px;
+            }
+
+                .sidebar ul li a {
+                    text-decoration: none;
+                    color: #333;
+                }
+
+    .popular-courses {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+        .popular-courses h2 {
+            text-align: center;
+        }
+
+    .course-card {
+        background-color: #ffe6e6;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        gap: 20px;
+    }
+
+        .course-card img {
+            width: 100px;
+            height: 100px;
+            background-color: #d9534f;
+            border-radius: 10px;
+        }
+
+    .course-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .course-details h3 {
+            margin: 0;
+        }
+
+        .course-details p {
+            margin: 10px 0;
+        }
+
+        .course-details .tags {
+            display: flex;
+            gap: 10px;
+        }
+
+            .course-details .tags span {
+                background-color: #d9534f;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+    .see-more {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        .see-more a {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+</style>
+
+@if (ViewBag.Message != null)
+{
+<div class="alert alert-success">
+    @ViewBag.Message
+</div>}
+
+<div class="jumbotron text-center" style="background-color:transparent;">
+    <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Discover To Professional</h1>
+    <div class="full-width">
+        <div class="input-group">
+            <span class="input-group-addon" style="background-color:peachpuff;">
+                <i class="fas fa-search"></i>
+            </span>
+            <input type="text" class="form-control" style="width: 100%; padding: 10px; box-sizing: border-box; background-color:peachpuff;" placeholder="Search...">
+        </div>
+    </div>
+</div>
+
+<div class="home-container">
+    <div class="home-image">
+        <img src="~/Assets/Login/Login 1.png" alt="Virtual Meeting">
+    </div>
+    <div class="testi-form">
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+        <div class="testi-1">
+            <div class="circle-image">
+                <img src="~/Assets/Cahya Wening P..jpg" alt="blm ada">
+            </div>
+            <div>
+                <h3>Anonim</h3>
+                <p>⭐⭐⭐⭐⭐</p>
+                <p>Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<p></p>
+<p></p>
+<div class="dashboard-container">
+    <div class="sidebar">
+        <h2>All Categories</h2>
+        <ul>
+            <li><a href="#">Lorem Ipsum</a></li>
+            <li><a href="#">Lorem Ipsum</a></li>
+            <li><a href="#">Lorem Ipsum</a></li>
+            <li><a href="#">Lorem Ipsum</a></li>
+            <li><a href="#">Lorem Ipsum</a></li>
+        </ul>
+    </div>
+    <div class="popular-courses">
+        <h2>Popular Course</h2>
+        <div class="course-card">
+            <img src="#" alt="Course Image">
+            <div class="course-details">
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur. Quam pharetra congue morbi odio velit vitae quam. Urna sit eget in in volutpat in lorem leo velit. Eleifend dui mollis dignissim velit lacus id massa imperdiet nisi. Aliquam vel mi varius mattis nunc congue pharetra venenatis et elementum condimentum. Lectus varius nibh dui purus tincidunt ipsum.</p>
+                <div class="tags">
+                    <span>SMA</span>
+                    <span>Video</span>
+                </div>
+            </div>
+        </div>
+        <div class="course-card">
+            <img src="#" alt="Course Image">
+            <div class="course-details">
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur. Quam pharetra congue morbi odio velit vitae quam. Urna sit eget in in volutpat in lorem leo velit. Eleifend dui mollis dignissim velit lacus id massa imperdiet nisi. Aliquam vel mi varius mattis nunc congue pharetra venenatis et elementum condimentum. Lectus varius nibh dui purus tincidunt ipsum.</p>
+                <div class="tags">
+                    <span>SMK</span>
+                    <span>Video</span>
+                </div>
+            </div>
+        </div>
+        <div class="course-card">
+            <img src="#" alt="Course Image">
+            <div class="course-details">
+                <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+                <p>Lorem ipsum dolor sit amet consectetur. Quam pharetra congue morbi odio velit vitae quam. Urna sit eget in in volutpat in lorem leo velit. Eleifend dui mollis dignissim velit lacus id massa imperdiet nisi. Aliquam vel mi varius mattis nunc congue pharetra venenatis et elementum condimentum. Lectus varius nibh dui purus tincidunt ipsum.</p>
+                <div class="tags">
+                    <span>SMK</span>
+                    <span>Video</span>
+                </div>
+            </div>
+        </div>
+        <div class="see-more">
+            <a href="#">See More</a>
+        </div>
+    </div>
+</div>

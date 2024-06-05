@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - EduTech</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar {
+            background-color: white;
+            border: none;
+            box-shadow: none;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+            .navbar-nav > li > a,
+            .navbar-right > li > a {
+                color: black !important;
+            }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-right: 5px;
+            color: black;
+        }
+
+        .btn-register {
+            margin-left: 10px;
+            color: black !important;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-nav-center {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .oval-btn {
+            border-radius: 50px;
+            background-color: red !important;
+            color: white !important;
+            padding: 10px 20px;
+        }
+
+            .oval-btn:hover {
+                background-color: darkred !important;
+                color: white !important;
+                border-radius: 50px;
+            }
+
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li > a:focus,
+        .navbar-right > li > a:hover,
+        .navbar-right > li > a:focus {
+            text-decoration: none;
+            border-bottom: 2px solid red;
+        }
+
+        .active-link {
+            border-bottom: 2px solid red;
+        }
+
+
+        .navbar-logo {
+            height: 70px;
+            width:100px;
+        }
+        .body-content{
+            padding:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="navbar-container">
+                    <ul class="nav navbar-nav navbar-left">
+                        @*<img src="@Url.Content("~/Assets/Logo/logo2.png")" class="navbar-logo" alt="Application name" />*@
+                        <img src="~/Assets/Logo/Minimalist E Logo.png" class="navbar-logo" />
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-nav-center">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                        <li>@Html.ActionLink("Mentor", "Index", "Mentor")</li>
+                        <li>@Html.ActionLink("About us", "Index", "About")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["username"] != null)
+                        {
+                            <li>
+                                <a href="#" onclick="redirectToProfile()">
+                                    <span class="user-icon">&#x1F464;</span>
+                                    <input type="hidden" id="username" value="@Session["username"].ToString()" />
+                                    @if (Session["name"] != null)
+                                    {
+                                        @Session["name"].ToString()
+                                    }
+                                    else
+                                    {
+                                        @Session["username"].ToString()
+                                    }
+                                </a>
+                            </li>
+                            <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                            <li>
+                                @Html.ActionLink("Register", "Register", "Home", null, new { @class = "btn btn-register oval-btn" })
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - EduTech.Kratonis</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+<script>
+    function redirectToProfile() {
+        var username = document.getElementById("username").value;
+        window.location.href = '/profile/index?username=' + encodeURIComponent(username);
+    }
+</script>
+</html>
